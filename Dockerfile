@@ -47,4 +47,4 @@ ENTRYPOINT ["/init"]
 EXPOSE 80 443
 VOLUME /config
 
-CMD ["-g","daemon off"]
+CMD ["-g","daemon off;"]
