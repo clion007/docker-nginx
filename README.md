@@ -7,7 +7,7 @@ Nginx is an webserver with php support and reverse proxy server, a mail proxy se
 * Protip: This container is best combined with a sql server, e.g. mariadb and a PHP
 
 ## Usage
-To help you get started creating a container from this image you can either use docker-compose or the docker cli.
+To help you get started creating a container from this image you can use the docker cli.
 
 ### Docker cli
 ```
