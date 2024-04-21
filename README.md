@@ -6,17 +6,22 @@ Nginx is an webserver with php support and reverse proxy server, a mail proxy se
 * Modify the nginx and site config files under /config as needed
 * Protip: This container is best combined with a sql server, e.g. mariadb and a PHP
 
-## Docker cli
+## Usage
+To help you get started creating a container from this image you can either use docker-compose or the docker cli.
+
+### Docker cli
 ```
-docker run
-  -d
-  --name='Nginx'
-  --net='vnet'
-  --ip='192.168.*.*' #optional
+docker run -d \
+  --name='Nginx' \
+  --net='bridge' \
+  --ip='192.168.*.*' #optional \
   -e TZ="Asia/Shanghai"
-  -e 'PUID'='99'
-  -e 'PGID'='100'
+  -e 'PUID'='1000'
+  -e 'PGID'='1000'
   -e 'UMASK'='022'
-  -v '/mnt/user/appdata/webserver':'/config':'rw'
-  'registry.cn-chengdu.aliyuncs.com/clion/nginx'
+  -p 80:80 #optional \
+  -p 443:443 #optional \
+  -v '/path/to/nginx/config':'/config' \
+  --restart unless-stopped \
+  registry.cn-chengdu.aliyuncs.com/clion/nginx
 ```
