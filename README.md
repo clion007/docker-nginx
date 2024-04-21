@@ -32,3 +32,6 @@ docker run -d \
 * -e PGID=1000	for GroupID
 * -e TZ=Asia/Shanghai specify a timezone to use in your local area.
 * -v /config	Persistent config files
+
+## Umask for running applications
+For all of my images I provide the ability to override the default umask settings for services started within the containers using the optional -e UMASK=022 setting. Keep in mind umask is not chmod it subtracts from permissions based on it's value it does not add.
