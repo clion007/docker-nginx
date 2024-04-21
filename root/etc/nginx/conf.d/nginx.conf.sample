@@ -75,5 +75,4 @@ http {
     include /config/nginx/site-confs/*.conf;
 }
 
-daemon off;
 pid /run/nginx.pid;
