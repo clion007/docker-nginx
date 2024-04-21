@@ -1,0 +1,33 @@
+#!/bin/sh
+set -e
+
+# make folders
+mkdir -p \
+    /config/{keys,www} \
+    /config/log/nginx \
+    /config/nginx/site-confs \
+    /run \
+    /var/lib/nginx/tmp/client_body \
+    /var/tmp/nginx
+
+# permissions
+chown -R nginx:nginx \
+    /var/lib/nginx \
+    /var/tmp/nginx
+
+chown -R nginx:nginx \
+    /config/keys \
+    /config/log \
+    /config/nginx
+
+chown nginx:nginx \
+    /config/www
+
+chmod -R g+w \
+    /config/nginx
+
+chmod -R 644 /etc/logrotate.d
+
+if [[ -f "/config/log/logrotate.status" ]]; then
+    chmod 600 /config/log/logrotate.status
+fi
