@@ -1,4 +1,5 @@
-# docker-nginx
+# clion/nginx
+Nginx is an HTTP and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server, originally written by Igor Sysoev.This is a custom image built with Alpine linux, nginx and logrotate. All softwares are keeped latest version.
 
 ## Docker cli
 ```
