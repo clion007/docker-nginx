@@ -10,7 +10,6 @@ RUN set -eux; \
   apk add --no-cache \
     nginx \
     openssl \
-    su-exec \
     logrotate \
     apache2-utils \
     nginx-mod-http-brotli \
