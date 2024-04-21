@@ -47,4 +47,6 @@ ENTRYPOINT ["/init"]
 EXPOSE 80 443
 VOLUME /config
 
+STOPSIGNAL SIGQUIT
+
 CMD ["-g","daemon off;"]
