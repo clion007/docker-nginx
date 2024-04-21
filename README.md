@@ -25,3 +25,10 @@ docker run -d \
   --restart unless-stopped \
   registry.cn-chengdu.aliyuncs.com/clion/nginx
 ```
+## Parameters
+* -p 80 http port
+* -p 443 https port
+* -e PUID=1000 for UserID
+* -e PGID=1000	for GroupID
+* -e TZ=Asia/Shanghai specify a timezone to use in your local area.
+* -v /config	Persistent config files
