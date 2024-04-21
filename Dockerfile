@@ -9,6 +9,7 @@ RUN set -eux; \
   #install build packages
   apk add --no-cache \
     nginx \
+    su-exec \
     logrotate \
     apache2-utils \
     nginx-mod-http-brotli \
