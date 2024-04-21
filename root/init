@@ -6,15 +6,8 @@ mkdir -p \
     /config/{keys,www} \
     /config/log/nginx \
     /config/nginx/site-confs \
-    /run \
-    /var/lib/nginx/tmp/client_body \
-    /var/tmp/nginx
 
 # permissions
-chown -R nginx:nginx \
-    /var/lib/nginx \
-    /var/tmp/nginx
-
 chown -R nginx:nginx \
     /config/keys \
     /config/log \
@@ -31,25 +24,6 @@ chmod -R 644 /etc/logrotate.d
 if [[ -f "/config/log/logrotate.status" ]]; then
     chmod 600 /config/log/logrotate.status
 fi
-
-# remove old samples
-find /config/nginx/ \
-    -name "*.conf.sample" \
-    -type f \
-    -delete
-
-# copy new samples
-find /defaults/nginx/ \
-    -maxdepth 1 \
-    -name "*.conf.sample" \
-    -type f \
-    -exec cp "{}" /config/nginx/ \;
-
-find /defaults/nginx/site-confs/ \
-    -maxdepth 1 \
-    -name "*.conf.sample" \
-    -type f \
-    -exec cp "{}" /config/nginx/site-confs/ \;
 
 # precreate log files
 for file in /config/log/nginx/access.log /config/log/nginx/error.log; do
