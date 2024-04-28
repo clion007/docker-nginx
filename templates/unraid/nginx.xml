@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>Nginx</Name>
+  <Repository>registry.cn-chengdu.aliyuncs.com/clion/nginx</Repository>
+  <Registry/>
+  <Network>vnet</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://github.com/clion007/docker-nginx/issues/new/choose</Support>
+  <Project>https://nginx.org/</Project>
+  <Overview>&#x6700;&#x65B0;Nginx</Overview>
+  <Category>Network:Web Network:Proxy</Category>
+  <WebUI/>
+  <TemplateURL>https://raw.githubusercontent.com/clion007/docker-nginx/main/templates/unraid/nginx.xml</TemplateURL>
+  <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nginx-logo.png</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="&#x914D;&#x7F6E;&#x8DEF;&#x5F84;" Target="/config" Default="" Mode="rw" Description="Contains your www content and all relevant configuration files." Type="Path" Display="advanced" Required="true" Mask="false">/mnt/user/appdata</Config>
+  <Config Name="PUID" Target="PUID" Default="1000" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">1000</Config>
+  <Config Name="PGID" Target="PGID" Default="1000" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="true" Mask="false">1000</Config>
+  <Config Name="UMASK" Target="UMASK" Default="022" Mode="{3}" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">022</Config>
+</Container>
