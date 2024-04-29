@@ -1,7 +1,7 @@
 # clion/nginx
 Nginx is an webserver with php support and reverse proxy server, a mail proxy server, and a generic TCP/UDP proxy server, originally written by Igor Sysoev. 
 
-This is a custom image built with Alpine linux, nginx and logrotate. All softwares are keeped latest version. The config files reside in /config for easy user customization.
+This is a custom image built with Alpine linux, nginx and logrotate. All softwares are keeped latest version. The config files reside in /config for easy user customization.This image will auto check and update when there is new version of nginx exist.
 
 ## Application Setup
 * Add your web files to /config/www for hosting.
@@ -9,7 +9,6 @@ This is a custom image built with Alpine linux, nginx and logrotate. All softwar
 * Protip: This container is best combined with a sql server, e.g. mariadb and a PHP
 
 ## Modules installed
-
 * nginx-mod-http-brotli
 * nginx-mod-http-dav-ext
 * nginx-mod-http-echo
