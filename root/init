@@ -3,7 +3,8 @@ set -e
 
 # make folders
 mkdir -p \
-    /config/{keys,www} \
+    /config/keys \
+    /config/www \
     /config/log/nginx \
     /config/nginx/site-confs \
 
