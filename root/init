@@ -6,7 +6,7 @@ mkdir -p \
     /config/keys \
     /config/www \
     /config/log/nginx \
-    /config/nginx/site-confs \
+    /config/nginx/site-confs
 
 # permissions
 chown -R nginx:nginx \
