@@ -1,8 +1,5 @@
 # syntax=docker/dockerfile:1
-FROM alpine
-
-# set version label
-LABEL maintainer="Clion Nieh <76857061@qq.com>"
+FROM clion007/alpine
 
 ENV BRANCH edge
 
@@ -62,12 +59,8 @@ fastcgi_param  SERVER_NAME        $host;' >> \
 # add local files
 COPY  --chmod=755 root/ /
 
-# set entrypoint
-ENTRYPOINT ["/init"]
-
-# ports and volumes
+# ports
 EXPOSE 80 443
-VOLUME /config
 
 STOPSIGNAL SIGQUIT
 
