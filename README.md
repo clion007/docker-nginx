@@ -48,6 +48,25 @@ docker run -d \
   --restart unless-stopped \
   registry.cn-chengdu.aliyuncs.com/clion/nginx
 ```
+
+### Docker-compose
+```
+services:
+  nginx:
+    image: registry.cn-chengdu.aliyuncs.com/clion/nginx
+    container_name: nginx
+    environment:
+      - PUID=99
+      - PGID=100
+      - UMASK=022
+    volumes:
+      - /path/to/nginx/config:/config
+    ports:
+      - 80:80
+      - 443:443
+    restart: unless-stopped
+```
+
 ## Parameters
 * -p 80 http port
 * -p 443 https port
