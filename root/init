@@ -92,6 +92,18 @@ if ! grep -q 'worker_processes' /config/nginx/worker_processes.conf; then
     echo -e "# This file is auto-generated only on first start, based on the cpu cores detected. Feel free to change it to any other number or to auto to let nginx handle it automatically.\n\nworker_processes ${WORKER_PROCESSES};" >/config/nginx/worker_processes.conf
 fi
 
+# Generated keys
+SUBJECT="/C=US/ST=CA/L=Carlsbad/O=Linuxserver.io/OU=LSIO Server/CN=*"
+if [[ -f /config/keys/cert.key && -f /config/keys/cert.crt ]]; then
+    echo "using keys found in /config/keys"
+else
+    echo "generating self-signed keys in /config/keys, you can replace these with your own keys if required"
+    rm -f \
+        /config/keys/cert.key \
+        /config/keys/cert.crt || true
+    openssl req -new -x509 -days 3650 -nodes -out /config/keys/cert.crt -keyout /config/keys/cert.key -subj "$SUBJECT"
+fi
+
 # first arg is `--some-option`
 if [ "${1#-}" != "$1" ]; then
 	set -- nginx "$@"
