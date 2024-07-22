@@ -38,13 +38,13 @@ RUN set -eux; \
   chown nginx:nginx /config; \
   \
   # configure nginx
-  echo '# https://httpoxy.org/ \
-fastcgi_param  HTTP_PROXY         ""; \
-# http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_split_path_info \
-fastcgi_param  PATH_INFO          $fastcgi_path_info; \
-# https://www.nginx.com/resources/wiki/start/topics/examples/phpfcgi/#connecting-nginx-to-php-fpm \
-fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name; \
-# Send HTTP_HOST as SERVER_NAME. If HTTP_HOST is blank, send the value of server_name from nginx (default is `_`) \
+  echo '# https://httpoxy.org/\n\
+fastcgi_param  HTTP_PROXY         "";\n\
+# http://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_split_path_info\n\
+fastcgi_param  PATH_INFO          $fastcgi_path_info;\n\
+# https://www.nginx.com/resources/wiki/start/topics/examples/phpfcgi/#connecting-nginx-to-php-fpm\n\
+fastcgi_param  SCRIPT_FILENAME    $document_root$fastcgi_script_name;\n\
+# Send HTTP_HOST as SERVER_NAME. If HTTP_HOST is blank, send the value of server_name from nginx (default is `_`)\n\
 fastcgi_param  SERVER_NAME        $host;' >> \
     /etc/nginx/fastcgi_params; \
   rm -f /etc/nginx/conf.d/stream.conf; \
