@@ -56,7 +56,14 @@ http {
     # included in server blocks where listen 443 is defined
 
     # Enable gzipping of responses.
-    #gzip on;
+    gzip on;
+    gzip_buffers 4 16K;
+    gzip_comp_level 6;
+    gzip_min_length 1k;
+    gzip_types application/javascript application/xml text/plain text/css;
+
+    # ie browser below ie6 not suport gzip
+    gzip_disable "MSIE [1-6]\."; 
 
     # Set the Vary HTTP header as defined in the RFC 2616. Default is 'off'.
     gzip_vary on;
