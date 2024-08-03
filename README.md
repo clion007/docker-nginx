@@ -45,6 +45,7 @@ docker run -d \
   -p 80:80 #optional \
   -p 443:443 #optional \
   -v '/path/to/nginx/config':'/config' \
+  -v /etc/localtime:/etc/localtime:ro \
   --restart unless-stopped \
   registry.cn-chengdu.aliyuncs.com/clion/nginx
 ```
@@ -61,6 +62,7 @@ services:
       - UMASK=022
     volumes:
       - /path/to/nginx/config:/config
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 80:80
       - 443:443
