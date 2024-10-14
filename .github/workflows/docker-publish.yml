@@ -38,6 +38,7 @@ jobs:
         password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
     - name: Build and Push Docker images
+      id: build
       uses: docker/build-push-action@v6
       with:
         file: Dockerfile
@@ -48,6 +49,21 @@ jobs:
           clion007/nginx:${{ steps.getVersion.outputs.curentVersion }}
           registry.cn-chengdu.aliyuncs.com/clion/nginx:latest
           registry.cn-chengdu.aliyuncs.com/clion/nginx:${{ steps.getVersion.outputs.curentVersion }}
+
+    - name: Get Release Body
+      id: getBody
+      if: steps.build.outcome == 'success'
+      run: |
+        BODYINFO='Changes details please view page <a href="https://nginx.org/en/CHANGES">https://nginx.org/en/CHANGES</a>.'
+        echo "BodyInfo=$BODYINFO" >> $GITHUB_OUTPUT
+      
+    - name: Publish Release
+      if: steps.build.outcome == 'success'
+      uses: ncipollo/release-action@v1
+      with:
+        name: Nginx v${{ steps.getVersion.outputs.curentVersion }}
+        tag: v${{ steps.getVersion.outputs.curentVersion }}
+        body: ${{ steps.getBody.outputs.BodyInfo }}
         
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
