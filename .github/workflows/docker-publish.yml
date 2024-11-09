@@ -54,7 +54,7 @@ jobs:
       id: getBody
       if: steps.build.outcome == 'success'
       run: |
-        BODYINFO='Changes details please view page <a href="https://nginx.org/en/CHANGES">https://nginx.org/en/CHANGES</a>.'
+        BODYINFO='Changes details please view page https://nginx.org/en/CHANGES.'
         echo "BodyInfo=$BODYINFO" >> $GITHUB_OUTPUT
       
     - name: Publish Release
