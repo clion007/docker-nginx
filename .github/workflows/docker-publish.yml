@@ -64,6 +64,7 @@ jobs:
         name: Nginx v${{ steps.getVersion.outputs.curentVersion }}
         tag: v${{ steps.getVersion.outputs.curentVersion }}
         body: ${{ steps.getBody.outputs.BodyInfo }}
+        skipIfReleaseExists: true
         
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2
