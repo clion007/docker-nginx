@@ -1,14 +1,10 @@
 # syntax=docker/dockerfile:1
 FROM clion007/alpine
 
-ENV BRANCH edge
-
 # install packages
 RUN set -eux; \
   #install build packages
   apk add --no-cache \
-    --repository=http://dl-cdn.alpinelinux.org/alpine/$BRANCH/main \
-    --repository=http://dl-cdn.alpinelinux.org/alpine/$BRANCH/community \
     nginx \
     openssl \
     logrotate \
