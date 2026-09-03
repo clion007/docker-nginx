@@ -15,7 +15,8 @@ jobs:
     - name: Setup latest Alpine Linux
       uses: jirutka/setup-alpine@v1
       with:
-        branch: edge
+        extra-repositories: |
+          https://dl-cdn.alpinelinux.org/latest-stable/main
 
     - name: Get latest version of nginx
       id: getVersion
